@@ -10,12 +10,6 @@ module.exports = {
         path: __dirname,
         filename: 'public/bundle.js'
     },
-    resolve: {
-        alias: {
-            List: path.resolve(__dirname, 'src/oldComponent/List.js'),
-            TopBar: path.resolve(__dirname, 'src/oldComponent/TopBar.js')
-        }
-    },
     module: {
         loaders: [
             {
