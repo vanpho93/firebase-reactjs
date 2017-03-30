@@ -5,3 +5,11 @@
 #div-form {
     padding: 20px
 }
+
+.button {
+    margin-right: 20px
+}
+
+hr {
+    visibility: hidden;
+}

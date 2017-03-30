@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const getClass = isImportant => (isImportant ? 'red' : 'green');
-
 class Note extends React.Component {
     save() {
         const newContent = this.refs.txtContent.value;
@@ -19,19 +17,20 @@ class Note extends React.Component {
         dispatch({ type: 'CREATE_UPDATE', index });
     }
     remove() {
-      const { index, dispatch } = this.props;
-      dispatch({ type: 'REMOVE_ITEM', index });
+      const { noteObject } = this.props;
+      noteObject.removeNote();
     }
     render() {
-        const { subject, content, important, updatingId, index } = this.props;
+        const { updatingId, noteObject } = this.props;
+        const { id, detail, subject } = noteObject;
         const input = (
             <input 
                 type="text" 
-                defaultValue={content} 
+                defaultValue={detail} 
                 placeholder="Enter new content" 
                 ref="txtContent" 
             />);
-        const xhtml = updatingId === index ? input : <p>{content}</p>;
+        const xhtml = updatingId === id ? input : <p>{detail}</p>;
 
         const buttonUpdate = (
             <div>
@@ -47,11 +46,11 @@ class Note extends React.Component {
             </div>
         );
 
-        const htmlControls = updatingId === index ? buttonUpdate : buttonNotUpdate;
+        const htmlControls = updatingId === id ? buttonUpdate : buttonNotUpdate;
 
         return (
             <div>
-                <h3 className={getClass(important)}>{subject}</h3>
+                <h3>{subject}</h3>
                 { xhtml }
                 <hr />
                 { htmlControls }

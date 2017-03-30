@@ -1,11 +1,14 @@
+import NoteModel from '../model/NoteModel';
+
 const defaultArray = [
-    { id: 1, subject: 'Hoc Tap', content: 'Nop do an cuoi khoa', important: true },
-    { id: 2, subject: 'An Choi', content: 'Di choi 8/3', important: false },
-    { id: 3, subject: 'Hoc Tap', content: 'Lam bai tap ve nha', important: false }
-    
+    new NoteModel('acadca', 'Xin chao', 'Alo xin chao tat ca cac ban'),
+    new NoteModel('afasjf', 'Tam biet', 'Alo, tam biet cac ban')
 ];
 
 const mangReducer = (state = defaultArray, action) => {
+    if (action.type === 'SET_DATA') {
+        return action.arrayData;
+    }
     if (action.type === 'REMOVE_ITEM') {
         return state.filter(e => e.id !== action.index); 
     }

@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 
 //Saving data for whole app
 const firebaseRef = firebase.database().ref();
-
+export default firebaseRef;
 // firebaseRef.set({
 //     username: 'Pho',
 //     notes: { 
@@ -56,3 +56,24 @@ const firebaseRef = firebase.database().ref();
 //Off the firebase listener by passing the function 
 // firebaseRef.off();
 // firebaseRef.off(listener);
+
+//Add a new item to the array.
+//This statement return a ref, you can see the id of the value
+// const notesRef = firebaseRef.child('notes');
+
+//The snapshot value is represent for the item, which has been changed
+// notesRef.on('child_added', snapshot => {
+
+// });
+
+// notesRef.on('child_changed', snapshot => {
+
+// });
+
+// notesRef.on('child_removed', snapshot => {
+
+// });
+
+// const newNoteRef = notesRef.push({
+//     text: 'Xin Chao cac ban'
+// });
