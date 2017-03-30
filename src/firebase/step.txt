@@ -1,0 +1,6 @@
+Step 1: Create firebase account - create your own application
+Step 2: Install the firebase module from npm or yarn as well
+Step 3: Import firebase to your code and get the config variable
+
+Step 4: Change the rules
+Step 5: Save a bit of data
