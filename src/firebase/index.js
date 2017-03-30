@@ -51,7 +51,7 @@ const firebaseRef = firebase.database().ref();
 // .then(snapshot => console.log(snapshot.key, snapshot.val()));
 
 //Firebase data changed handler, you can set on for root and child
-// firebaseRef.on('value', () => console.log('Data changed'));
+// firebaseRef.on('value', snapshot => console.log('Data changed'));
 
 //Off the firebase listener by passing the function 
 // firebaseRef.off();
