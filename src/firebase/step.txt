@@ -4,3 +4,9 @@ Step 3: Import firebase to your code and get the config variable
 
 Step 4: Change the rules
 Step 5: Save a bit of data
+
+----------------------------------------------------------------
+
+Create a new application in your github, google, twitter or facebook as well
+Look at your callback url, paste it to firebase OAuth
+Github Provider configure in your app file

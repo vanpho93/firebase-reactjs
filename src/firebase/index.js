@@ -10,6 +10,7 @@ const config = {
 firebase.initializeApp(config);
 
 //Saving data for whole app
+export const githubProvider = new firebase.auth.GithubAuthProvider();
 const firebaseRef = firebase.database().ref();
 export default firebaseRef;
 // firebaseRef.set({

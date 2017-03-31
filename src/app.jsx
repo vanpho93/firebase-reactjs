@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import List from './component/List';
+import Login from './component/Login';
 import store from './redux/store';
 import './api/foundationSetup';
 import firebaseRef from './firebase';
@@ -34,7 +37,12 @@ notesRef.on('child_changed', snapshot => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <List />
+        <Router>
+            <div>
+                <Route exact path='/' component={Login} />
+                <Route path='/todos' component={List} />
+            </div>
+        </Router>
     </Provider>,
     document.getElementById('root')
 );
