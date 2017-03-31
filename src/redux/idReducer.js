@@ -3,7 +3,7 @@ const idReducer = (state = null, action) => {
         return null;
     }
     if (action.type === 'CREATE_UPDATE') {
-        return action.index;
+        return action.id;
     }
     return state;
 };

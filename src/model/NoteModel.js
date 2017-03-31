@@ -14,7 +14,7 @@ class NoteModel {
         this.detail = detail;
     }
 
-    addNote() {
+    addNoteToDatabase() {
         const notesRef = firebaseRef.child('notes/');
         notesRef.push({
             subject: this.subject,

@@ -3,18 +3,16 @@ import { connect } from 'react-redux';
 
 class Note extends React.Component {
     save() {
-        const newContent = this.refs.txtContent.value;
-        const { index, dispatch } = this.props;
-        dispatch({ type: 'UPDATE_ITEM', index, content: newContent });
-        dispatch({ type: 'CANCEL_UPDATE' });
+        
     }
     cancel() {
         const { dispatch } = this.props;
         dispatch({ type: 'CANCEL_UPDATE' });
     }
     update() {
-        const { dispatch, index } = this.props;
-        dispatch({ type: 'CREATE_UPDATE', index });
+        const { dispatch, noteObject } = this.props;
+        const { id } = noteObject;
+        dispatch({ type: 'CREATE_UPDATE', id });
     }
     remove() {
       const { noteObject } = this.props;

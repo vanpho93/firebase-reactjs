@@ -8,7 +8,7 @@ export default class NoteForm extends React.Component {
     this.refs.txtSubject.value = '';
     this.refs.txtContent.value = '';
     const newNote = new NoteModel(undefined, subject, detail);
-    newNote.addNote();
+    newNote.addNoteToDatabase();
   }
   render() {
     return (

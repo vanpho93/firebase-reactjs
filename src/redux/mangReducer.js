@@ -10,7 +10,7 @@ const mangReducer = (state = defaultArray, action) => {
         return action.arrayData;
     }
     if (action.type === 'REMOVE_ITEM') {
-        return state.filter(e => e.id !== action.index); 
+        return state.filter(e => e.id !== action.id); 
     }
     if (action.type === 'UPDATE_ITEM') {
         return state.map(e => {
