@@ -26,6 +26,10 @@ class NoteModel {
         return firebaseRef.child('notes').child(this.id).remove();
     }
 
+    updateNote(newDetail) {
+        return firebaseRef.child('notes').child(this.id).update({ detail: newDetail });
+    }
+ 
     static getAllNotes() {
         return firebaseRef.once('value')
         .then(snapshot => {

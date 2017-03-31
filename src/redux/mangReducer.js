@@ -14,8 +14,8 @@ const mangReducer = (state = defaultArray, action) => {
     }
     if (action.type === 'UPDATE_ITEM') {
         return state.map(e => {
-            if (e.id !== action.index) return e;
-            return { ...e, content: action.content };
+            if (e.id !== action.item.id) return e;
+            return action.item;
         });
     }
     if (action.type === 'ADD_ITEM') {

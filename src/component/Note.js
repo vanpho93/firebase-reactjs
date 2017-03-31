@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 class Note extends React.Component {
     save() {
-        
+        const { noteObject, dispatch } = this.props;
+        noteObject.updateNote(this.refs.txtContent.value);
+        dispatch({ type: 'CANCEL_UPDATE' });
     }
     cancel() {
         const { dispatch } = this.props;
