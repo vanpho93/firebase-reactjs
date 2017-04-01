@@ -1,15 +1,18 @@
 import React from 'react';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
 import { githubProvider } from '../firebase';
+import { Redirect } from 'react-router-dom';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     onLogin() {
         firebase.auth().signInWithPopup(githubProvider)
         .then(result => console.log('Worded', result))
         .catch(err => console.log('Err', err));
     }
     render() {
-        return (
+        const { user } = this.props;
+        const html = (
             <div className='div-form row container'>
                 <div className='small-12 large-4 columns'>
                     <input type="text" ref="txtUsername" placeholder="Username" />
@@ -21,5 +24,9 @@ export default class Login extends React.Component {
                 </div>
             </div>
         );
+        const redirect = <Redirect to='/todos' />;
+        return (user ? redirect : html);
     }
 }
+
+module.exports = connect(state => ({ user: state.user }))(Login);

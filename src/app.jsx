@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-
+import firebase from 'firebase';
 import { Provider } from 'react-redux';
-import List from './component/List';
-import Login from './component/Login';
+import List from './component/List.jsx';
+import Login from './component/Login.jsx';
 import store from './redux/store';
 import './api/foundationSetup';
 import firebaseRef from './firebase';
@@ -34,6 +34,11 @@ notesRef.on('child_changed', snapshot => {
     store.dispatch({ type: 'UPDATE_ITEM', item: new NoteModel(id, subject, detail) });
 });
 
+//On auth state changed
+firebase.auth().onAuthStateChanged(user => {
+    console.log('User:', user);
+    if (user) store.dispatch({ type: 'SET_USER', user });
+});
 
 ReactDOM.render(
     <Provider store={store}>

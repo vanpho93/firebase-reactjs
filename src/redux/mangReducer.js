@@ -1,11 +1,4 @@
-import NoteModel from '../model/NoteModel';
-
-const defaultArray = [
-    new NoteModel('acadca', 'Xin chao', 'Alo xin chao tat ca cac ban'),
-    new NoteModel('afasjf', 'Tam biet', 'Alo, tam biet cac ban')
-];
-
-const mangReducer = (state = defaultArray, action) => {
+const mangReducer = (state = [], action) => {
     if (action.type === 'SET_DATA') {
         return action.arrayData;
     }
