@@ -1,8 +1,8 @@
 import React from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
-import { githubProvider } from '../firebase';
 import { Redirect } from 'react-router-dom';
+import { githubProvider } from '../firebase';
 
 class Login extends React.Component {
     onLogin() {
